@@ -57,9 +57,12 @@ psycopg-pool==3.3.0
 pydantic==2.12.5
     # via
     #   fastapi
+    #   pydantic-settings
     #   sqlmodel
 pydantic-core==2.41.5
     # via pydantic
+pydantic-settings==2.13.1
+    # via -r requirements.in
 pygments==2.19.2
     # via
     #   pdbpp
@@ -69,7 +72,9 @@ pytest==9.0.2
 pytest-repeat==0.9.4
     # via -r requirements.in
 python-dotenv==1.2.1
-    # via uvicorn
+    # via
+    #   pydantic-settings
+    #   uvicorn
 pytokens==0.4.1
     # via black
 pyyaml==6.0.3
@@ -92,6 +97,7 @@ typing-inspection==0.4.2
     # via
     #   fastapi
     #   pydantic
+    #   pydantic-settings
 uvicorn[standard]==0.41.0
     # via -r requirements.in
 uvloop==0.22.1

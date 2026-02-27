@@ -1,5 +1,6 @@
 fastapi
 psycopg[binary,pool]
+pydantic-settings
 sqlmodel
 uvicorn[standard]
 
