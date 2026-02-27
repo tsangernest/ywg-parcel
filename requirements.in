@@ -1,0 +1,11 @@
+fastapi
+psycopg[binary,pool]
+sqlmodel
+uvicorn[standard]
+
+# dev
+black
+isort
+pdbpp
+pytest-repeat
+
