@@ -8,7 +8,7 @@ from app.core.db import engine
 
 async def get_db():
     async_session = async_sessionmaker(
-        engine,
+        biengine,
         class_=AsyncSession,
         expire_on_commit=False,
     )
