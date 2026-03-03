@@ -9,7 +9,7 @@ from app.core.db import engine
 async def get_db():
     async_session = async_sessionmaker(
         engine,
-        _class=AsyncSession,
+        class_=AsyncSession,
         expire_on_commit=False,
     )
     async with async_session() as session:

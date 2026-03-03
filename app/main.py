@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.api.routes.utils import router
+from app.api.main import api_router
 from app.core.db import init_db
 
 
@@ -11,7 +11,7 @@ async def on_startup():
 def get_application() -> FastAPI:
     application = FastAPI()
     application.add_event_handler("startup", on_startup)
-    application.include_router(router)
+    application.include_router(api_router)
     return application
 
 
