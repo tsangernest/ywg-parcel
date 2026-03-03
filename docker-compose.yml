@@ -1,0 +1,34 @@
+
+
+services:
+  db:
+    image: postgres:18.2
+    container_name: postgresql
+    environment:
+      POSTGRES_DB: "ywgparcel"
+      POSTGRES_USER: "ywgparceluser"
+      POSTGRES_PASSWORD: "ywgparcelpass"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: always
+
+  web:
+    build:
+      context: .
+      args:
+        DOCKER_BUILDKIT: 0
+    container_name: fastapi
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    restart: always
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+
+volumes:
+  postgres_data:
