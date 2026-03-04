@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from fastapi.responses import JSONResponse
+from fastapi import status
 from sqlalchemy import text, select
 
 from app.api.deps import SessionDep
@@ -9,9 +9,6 @@ router = APIRouter(prefix="/utils", tags=["utils"])
 
 
 @router.get(path="/health/")
-async def health_check(session: SessionDep):
-    return JSONResponse(
-        status_code=500,
-        content={"message": "yikes, probably no db connected"},
-    )
+async def health_check(session: SessionDep) -> dict:
+    return {status.HTTP_500_INTERNAL_SERVER_ERROR: "No db connection"}
 
