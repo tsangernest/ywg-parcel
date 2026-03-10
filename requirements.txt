@@ -13,7 +13,7 @@ anyio==4.12.1
     #   httpx
     #   starlette
     #   watchfiles
-black==26.1.0
+black==26.3.0
     # via -r requirements.in
 certifi==2026.2.25
     # via
@@ -25,7 +25,7 @@ click==8.3.1
     #   uvicorn
 fancycompleter==0.11.1
     # via pdbpp
-fastapi==0.133.1
+fastapi==0.135.1
     # via -r requirements.in
 greenlet==3.3.2
     # via sqlalchemy
@@ -45,7 +45,7 @@ idna==3.11
     #   httpx
 iniconfig==2.3.0
     # via pytest
-isort==8.0.0
+isort==8.0.1
     # via -r requirements.in
 mypy-extensions==1.1.0
     # via black
@@ -57,7 +57,7 @@ pathspec==1.0.4
     # via black
 pdbpp==0.12.1
     # via -r requirements.in
-platformdirs==4.9.2
+platformdirs==4.9.4
     # via black
 pluggy==1.6.0
     # via pytest
@@ -84,7 +84,7 @@ pytest==9.0.2
     # via pytest-repeat
 pytest-repeat==0.9.4
     # via -r requirements.in
-python-dotenv==1.2.1
+python-dotenv==1.2.2
     # via
     #   pydantic-settings
     #   uvicorn
@@ -92,7 +92,7 @@ pytokens==0.4.1
     # via black
 pyyaml==6.0.3
     # via uvicorn
-sqlalchemy==2.0.47
+sqlalchemy==2.0.48
     # via sqlmodel
 sqlmodel==0.0.37
     # via -r requirements.in
