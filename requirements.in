@@ -9,5 +9,6 @@ black
 isort
 httpx
 pdbpp
+polyfactory
 pytest-repeat
 
