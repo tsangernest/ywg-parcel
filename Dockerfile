@@ -5,7 +5,7 @@ WORKDIR /app
 
 
 RUN python3.12 -m venv /var/venv/
-RUN pip install -U 'pip<25.3' pip-tools --no-cache-dir
+RUN pip install -U pip pip-tools --no-cache-dir
 
 
 COPY ./requirements.txt .
