@@ -18,7 +18,8 @@ services:
     build:
       context: .
       args:
-        DOCKER_BUILDKIT: 0
+        DOCKER_BUILDKIT: 1
+        PYTHONDONTWRITEBYTECODE: 1n
     container_name: fastapi
     ports:
       - "8000:8000"
