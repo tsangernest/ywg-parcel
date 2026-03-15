@@ -1,5 +1,3 @@
-import os
-import sys
 import invoke
 
 
@@ -19,14 +17,14 @@ def virtualenvironment(c, update=False):
 def startapp(c):
     print(f"***\nStarting YWG-Parcel App\n***")
     c.run("docker compose build")
-    c.run("docker compose up")
+    c.run("docker compose up", pty=True)
 
 
 @invoke.task
 def down(c):
     print(f"***\n***\n")
-    c.run("docker compose down")
-    c.run("docker system prune -a", pty=True)
+    c.run("docker compose down", pty=True)
+    c.run("docker system prune -af", disown=True, pty=True)
 
 
 # Still has issues after jumping into container...
