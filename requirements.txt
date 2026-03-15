@@ -47,6 +47,8 @@ idna==3.11
     #   httpx
 iniconfig==2.3.0
     # via pytest
+invoke==2.2.1
+    # via -r requirements.in
 isort==8.0.1
     # via -r requirements.in
 mypy-extensions==1.1.0
