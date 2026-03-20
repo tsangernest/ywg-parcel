@@ -5,6 +5,7 @@ sqlmodel
 uvicorn[standard]
 
 # dev
+aiosqlite
 black
 httpx
 invoke
@@ -12,5 +13,4 @@ isort
 pdbpp
 polyfactory
 pytest-repeat
-pytest-asyncio
 

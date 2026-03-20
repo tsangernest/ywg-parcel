@@ -1,6 +1,8 @@
 from pydantic import PostgresDsn, computed_field
 from pydantic_settings import BaseSettings
 
+from tests.db_persistence import SqliteAsync
+
 
 class Settings(BaseSettings):
     @computed_field
@@ -21,6 +23,17 @@ class Settings(BaseSettings):
             host="postgresql",
             port=5432,
             path="ywgparcel",
+        )
+
+    @computed_field
+    @property
+    def SQLITE_DATABASE_URI(self) -> SqliteAsync:
+        """
+        * Just wanted to integrate an async sqlite to pydantic network
+        """
+        return SqliteAsync.build(
+            scheme="sqlite+aiosqlite",
+            host="",
         )
 
 
