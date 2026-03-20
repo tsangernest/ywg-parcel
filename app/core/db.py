@@ -1,4 +1,4 @@
-from sqlalchemy import NullPool, text
+from sqlalchemy import NullPool, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine
 from sqlmodel import SQLModel
@@ -18,7 +18,8 @@ async def init_db():
     async with engine.begin() as conn:
         await conn.run_sync(SQLModel.metadata.create_all)
         try:
-            await conn.execute(text("SELECT 1"))
+            await conn.execute(select(1))
+            # print(f"\n{engine.engine=}\n")
         except IntegrityError:
             pass
 
