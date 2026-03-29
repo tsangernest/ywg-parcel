@@ -55,10 +55,14 @@ isort==8.0.1
     # via -r requirements.in
 mypy-extensions==1.1.0
     # via black
+numpy==2.4.3
+    # via pandas
 packaging==26.0
     # via
     #   black
     #   pytest
+pandas==3.0.1
+    # via -r requirements.in
 pathspec==1.0.4
     # via black
 pdbpp==0.12.1
@@ -92,6 +96,8 @@ pytest==9.0.2
     # via pytest-repeat
 pytest-repeat==0.9.4
     # via -r requirements.in
+python-dateutil==2.9.0.post0
+    # via pandas
 python-dotenv==1.2.2
     # via
     #   pydantic-settings
@@ -100,6 +106,8 @@ pytokens==0.4.1
     # via black
 pyyaml==6.0.3
     # via uvicorn
+six==1.17.0
+    # via python-dateutil
 sqlalchemy==2.0.48
     # via sqlmodel
 sqlmodel==0.0.37

@@ -2,20 +2,25 @@ import asyncio
 import pytest
 
 from httpx import AsyncClient
+from sqlalchemy import select
 from typing import AsyncGenerator
 
 from app.main import get_application
 from app.core.db import init_db
+from app.api.deps import SessionDep
+
 
 @pytest.fixture(scope="function")
 async def session():
     """
-    async for session in get_session(): # because we have multiple session of multiple users
+    async for session in SessionDep: # because we have multiple session of multiple users
         await session.execute()
         await session.commit()
     """
-
-    yield session
+    async for session in SessionDep:
+        await session.execute(select(1))
+        await session.commit()
+        yield session
 
 
 @pytest.fixture(scope="module")

@@ -1,4 +1,5 @@
 fastapi
+pandas
 psycopg[binary,pool]
 pydantic-settings
 sqlmodel
