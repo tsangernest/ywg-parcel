@@ -5,7 +5,7 @@ import pytest
 from httpx import AsyncClient
 from sqlalchemy import select
 
-from app.api.deps import SessionDep
+from app.api.deps import SessionDep, get_db
 from app.core.db import init_db
 from app.main import get_application
 
@@ -13,11 +13,11 @@ from app.main import get_application
 @pytest.fixture(scope="function")
 async def session() -> AsyncGenerator[SessionDep, None]:
     """
-    async for session in SessionDep: # because we have multiple session of multiple users
+    async for session in get_db(): # because we have multiple session of multiple users
         await session.execute()
         await session.commit()
     """
-    async for session in SessionDep:
+    async for session in get_db():
         await session.execute(select(1))
         await session.commit()
         yield session
