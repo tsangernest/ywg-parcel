@@ -2,6 +2,7 @@ import asyncio
 from typing import AsyncGenerator
 
 import pytest
+from fastapi import FastAPI
 from httpx import AsyncClient
 from sqlalchemy import select
 
@@ -29,7 +30,7 @@ def event_loop():
 
 
 @pytest.fixture(scope="module")
-async def app():
+async def app() -> AsyncGenerator[FastAPI, None]:
     """
     app = get_application()
     await init_db()
