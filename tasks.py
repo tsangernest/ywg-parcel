@@ -27,7 +27,7 @@ def down(c):
     c.run("docker system prune -af", disown=True, pty=True)
 
 
-# Still has issues after jumping into container...
+# Still has issues after jumping into container even with python 3.12...
 # @invoke.task
 # def exec(c):
 #     print(f"jumping into app")

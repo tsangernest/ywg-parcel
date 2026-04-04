@@ -16,10 +16,11 @@ engine: AsyncEngine = create_async_engine(
 
 async def init_db():
     async with engine.begin() as conn:
+        print(f"\n{engine.engine=}\n")
         await conn.run_sync(SQLModel.metadata.create_all)
         try:
             await conn.execute(select(1))
-            # print(f"\n{engine.engine=}\n")
+            print(f"\n{engine.engine=}\n")
         except IntegrityError:
             pass
 
