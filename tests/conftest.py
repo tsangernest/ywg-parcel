@@ -31,11 +31,6 @@ def event_loop():
 
 @pytest.fixture(scope="module")
 async def app() -> AsyncGenerator[FastAPI, None]:
-    """
-    app = get_application()
-    await init_db()
-    yield app
-    """
     app = get_application()
     await init_db()
     print(f"{app.host=}")
