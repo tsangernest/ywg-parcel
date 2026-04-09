@@ -4,7 +4,7 @@ FROM python:3.14.3-slim
 WORKDIR /app
 
 
-RUN python3.12 -m venv /var/venv/
+RUN python3.14 -m venv /var/venv/
 RUN pip install -U pip pip-tools --no-cache-dir
 
 
