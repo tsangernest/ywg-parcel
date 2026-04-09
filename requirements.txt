@@ -10,28 +10,28 @@ annotated-doc==0.0.4
     # via fastapi
 annotated-types==0.7.0
     # via pydantic
-anyio==4.12.1
+anyio==4.13.0
     # via
     #   httpx
     #   starlette
     #   watchfiles
-black==26.3.0
+black==26.3.1
     # via -r requirements.in
 certifi==2026.2.25
     # via
     #   httpcore
     #   httpx
-click==8.3.1
+click==8.3.2
     # via
     #   black
     #   uvicorn
-faker==40.8.0
+faker==40.13.0
     # via polyfactory
 fancycompleter==0.11.1
     # via pdbpp
-fastapi==0.135.1
+fastapi==0.135.3
     # via -r requirements.in
-greenlet==3.3.2
+greenlet==3.4.0
     # via sqlalchemy
 h11==0.16.0
     # via
@@ -49,25 +49,25 @@ idna==3.11
     #   httpx
 iniconfig==2.3.0
     # via pytest
-invoke==2.2.1
+invoke==3.0.3
     # via -r requirements.in
 isort==8.0.1
     # via -r requirements.in
 mypy-extensions==1.1.0
     # via black
-numpy==2.4.3
+numpy==2.4.4
     # via pandas
 packaging==26.0
     # via
     #   black
     #   pytest
-pandas==3.0.1
+pandas==3.0.2
     # via -r requirements.in
 pathspec==1.0.4
     # via black
 pdbpp==0.12.1
     # via -r requirements.in
-platformdirs==4.9.4
+platformdirs==4.9.6
     # via black
 pluggy==1.6.0
     # via pytest
@@ -88,11 +88,11 @@ pydantic-core==2.41.5
     # via pydantic
 pydantic-settings==2.13.1
     # via -r requirements.in
-pygments==2.19.2
+pygments==2.20.0
     # via
     #   pdbpp
     #   pytest
-pytest==9.0.2
+pytest==9.0.3
     # via pytest-repeat
 pytest-repeat==0.9.4
     # via -r requirements.in
@@ -108,11 +108,11 @@ pyyaml==6.0.3
     # via uvicorn
 six==1.17.0
     # via python-dateutil
-sqlalchemy==2.0.48
+sqlalchemy==2.0.49
     # via sqlmodel
-sqlmodel==0.0.37
+sqlmodel==0.0.38
     # via -r requirements.in
-starlette==0.52.1
+starlette==1.0.0
     # via fastapi
 typing-extensions==4.15.0
     # via
@@ -122,13 +122,14 @@ typing-extensions==4.15.0
     #   pydantic
     #   pydantic-core
     #   sqlalchemy
+    #   sqlmodel
     #   typing-inspection
 typing-inspection==0.4.2
     # via
     #   fastapi
     #   pydantic
     #   pydantic-settings
-uvicorn[standard]==0.41.0
+uvicorn[standard]==0.44.0
     # via -r requirements.in
 uvloop==0.22.1
     # via uvicorn
