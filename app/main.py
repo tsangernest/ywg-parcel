@@ -11,7 +11,6 @@ async def on_startup():
 def get_application() -> FastAPI:
     # TODO: implement a settings config file
     application = FastAPI(debug=True)
-    application.add_event_handler("startup", on_startup)
     application.include_router(api_router)
     return application
 

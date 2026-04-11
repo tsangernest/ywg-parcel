@@ -1,9 +1,11 @@
+from functools import lru_cache
 from pydantic import PostgresDsn, computed_field
 from pydantic_settings import BaseSettings
 
 from tests.db_persistence import SqliteAsync
 
 
+@lru_cache
 class Settings(BaseSettings):
     @computed_field
     @property

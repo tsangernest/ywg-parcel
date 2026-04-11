@@ -25,11 +25,6 @@ async def session() -> AsyncGenerator[SessionDep, None]:
 
 
 @pytest.fixture(scope="module")
-def event_loop():
-    yield asyncio.get_event_loop()
-
-
-@pytest.fixture(scope="module")
 async def app() -> AsyncGenerator[FastAPI, None]:
     app = get_application()
     await init_db()
