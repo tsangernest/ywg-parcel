@@ -15,8 +15,6 @@ from app.main import get_application
 async def session() -> AsyncGenerator[SessionDep, None]:
     """
     async for session in get_db(): # because we have multiple session of multiple users
-        await session.execute()
-        await session.commit()
     """
     async for session in get_db():
         await session.execute(select(1))
