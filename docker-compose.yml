@@ -30,6 +30,29 @@ services:
     restart: always
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload --loop uvloop
 
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      - OLLAMA_VULKAN=1qq
+    mem_limit: 48g
+    depends_on:
+      - web
+    restart: always
+    entrypoint: [
+      "/bin/bash", "-c", "\
+      ollama serve & \
+      sleep 6 && \
+      ollama run nexusriot/gemma3-abliterated:12b && \
+      wait"
+    ]
 
 volumes:
   postgres_data:
+  ollama:
