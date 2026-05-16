@@ -1,9 +1,12 @@
 fastapi
+ollama
 pandas
+pillow
 psycopg[binary,pool]
 pydantic-settings
 sqlmodel
 uvicorn[standard]
+
 
 # dev
 aiosqlite
@@ -14,5 +17,4 @@ isort
 pdbpp
 polyfactory
 pytest-repeat
-ollama
 
