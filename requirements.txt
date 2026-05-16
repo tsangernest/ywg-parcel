@@ -42,7 +42,9 @@ httpcore==1.0.9
 httptools==0.7.1
     # via uvicorn
 httpx==0.28.1
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   ollama
 idna==3.11
     # via
     #   anyio
@@ -57,6 +59,8 @@ mypy-extensions==1.1.0
     # via black
 numpy==2.4.4
     # via pandas
+ollama==0.6.2
+    # via -r requirements.in
 packaging==26.0
     # via
     #   black
@@ -82,6 +86,7 @@ psycopg-pool==3.3.0
 pydantic==2.12.5
     # via
     #   fastapi
+    #   ollama
     #   pydantic-settings
     #   sqlmodel
 pydantic-core==2.41.5
