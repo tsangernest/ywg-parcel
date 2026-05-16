@@ -40,7 +40,7 @@ services:
     devices:
       - /dev/dri:/dev/dri
     environment:
-      - OLLAMA_VULKAN=1qq
+      - OLLAMA_VULKAN=1
     mem_limit: 48g
     depends_on:
       - web
