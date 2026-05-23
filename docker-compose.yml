@@ -49,7 +49,7 @@ services:
       "/bin/bash", "-c", "\
       ollama serve & \
       sleep 6 && \
-      ollama run nexusriot/gemma3-abliterated:12b && \
+      ollama run gemma3:12b && \
       wait"
     ]
 
