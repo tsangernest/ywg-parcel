@@ -29,9 +29,9 @@ def down(c):
 
 # Still has issues after jumping into container even with python 3.12...
 # @invoke.task
-# def exec(c):
+# def exec(c, container_name: str = "fastapi"):
 #     print(f"jumping into app")
-#     c.run("docker exec -it fastapi /bin/bash", pty=True)
+#     c.run(f"docker exec -it {container_name} /bin/bash", pty=True)
 
 
 
