@@ -2,7 +2,7 @@
 
 services:
   db:
-    image: postgres:18.2
+    image: postgres:18.4
     container_name: postgresql
     environment:
       POSTGRES_DB: "ywgparcel"
@@ -40,6 +40,7 @@ services:
     devices:
       - /dev/dri:/dev/dri
     environment:
+      - OLLAMA_REMOTES=!
       - OLLAMA_VULKAN=1
     mem_limit: 48g
     depends_on:
