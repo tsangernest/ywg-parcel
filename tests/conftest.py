@@ -1,9 +1,8 @@
-import asyncio
 from typing import AsyncGenerator
 
 import pytest
 from fastapi import FastAPI
-from httpx import AsyncClient
+from httpx import AsyncClient as httpxAsyncClient
 from sqlalchemy import select
 
 from app.api.deps import SessionDep, get_db
@@ -26,12 +25,12 @@ async def session() -> AsyncGenerator[SessionDep, None]:
 async def app() -> AsyncGenerator[FastAPI, None]:
     app = get_application()
     await init_db()
-    print(f"{app.host=}")
+    # print(f"{app.host=}")
     yield app
 
 
 @pytest.fixture(scope="module")
-async def aclient(app) ->  AsyncGenerator[AsyncClient, None]:
-    async with AsyncClient(base_url="http://localhost:8000") as aclient:
+async def aclient(app) ->  AsyncGenerator[httpxAsyncClient, None]:
+    async with httpxAsyncClient(base_url="http://localhost:8000") as aclient:
         yield aclient
 
