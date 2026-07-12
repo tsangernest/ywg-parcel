@@ -40,7 +40,7 @@ services:
     devices:
       - /dev/dri:/dev/dri
     environment:
-      - OLLAMA_IGPU_ENABLE=1
+#      - OLLAMA_IGPU_ENABLE=1
       - OLLAMA_REMOTES=!
       - OLLAMA_VULKAN=1
     mem_limit: 48g

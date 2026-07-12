@@ -1,0 +1,7 @@
+* cpu, 1 process
+[ === 15 passed in 463.26s (0:07:43) === ]
+
+
+* gpu, 1 process
+    [ === 15 passed in 216.39s (0:03:36) === ]
+
