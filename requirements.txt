@@ -25,6 +25,8 @@ click==8.4.1
     # via
     #   black
     #   uvicorn
+execnet==2.1.2
+    # via pytest-xdist
 faker==40.23.0
     # via polyfactory
 fancycompleter==0.11.1
@@ -100,8 +102,12 @@ pygments==2.20.0
     #   pdbpp
     #   pytest
 pytest==9.1.0
-    # via pytest-repeat
+    # via
+    #   pytest-repeat
+    #   pytest-xdist
 pytest-repeat==0.9.4
+    # via -r requirements.in
+pytest-xdist==3.8.0
     # via -r requirements.in
 python-dateutil==2.9.0.post0
     # via pandas

@@ -16,5 +16,6 @@ invoke
 isort
 pdbpp
 polyfactory
+pytest-xdist
 pytest-repeat
 
