@@ -10,10 +10,14 @@
 [ === 15 passed in 464.52s (0:07:44) === ]
 
 
-* gpu, multiprocess on 8
+* gpu, multiprocess on 8 cores
 [ === 15 passed in 163.77s (0:02:43) === ]
 
 
 * gpu, multiprocess on 'auto'
 [ === 15 passed in 183.46s (0:03:03) === ]
+
+
+# gpu, multiprocess on 8 cores
+[ === 15 passed in 169.40s (0:02:49) === ]
 
