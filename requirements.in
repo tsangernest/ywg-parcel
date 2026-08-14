@@ -2,14 +2,18 @@ fastapi
 ollama
 pandas
 pillow
-psycopg[binary,pool]
 pydantic-settings
 sqlmodel
 uvicorn[standard]
 
 
+# DB connectors
+psycopg[binary,pool]    # postgres -- main
+aiomysql    # mariadb -- secondary
+aiosqlite   # sqlite -- test
+
+
 # dev
-aiosqlite
 black
 httpx
 invoke

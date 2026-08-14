@@ -7,7 +7,7 @@ from app.core.config import settings
 
 
 engine: AsyncEngine = create_async_engine(
-    url=str(settings.SQLITE_DATABASE_URI),
+    url=str(settings.SQL_MARIADB_URI),
     echo=True,
     future=True,
     poolclass=NullPool,

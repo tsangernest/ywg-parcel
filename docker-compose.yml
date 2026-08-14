@@ -1,18 +1,32 @@
 
 
 services:
+#  db:
+#    image: postgres:18.4
+#    container_name: postgresql
+#    environment:
+#      POSTGRES_DB: "ywgparcel"
+#      POSTGRES_USER: "ywgparceluser"
+#      POSTGRES_PASSWORD: "ywgparcelpass"
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - postgres_data:/var/lib/postgresql
+#    restart: always
+
   db:
-    image: postgres:18.4
-    container_name: postgresql
+    image: mariadb:12.3.2
+    container_name: mysql
     environment:
-      POSTGRES_DB: "ywgparcel"
-      POSTGRES_USER: "ywgparceluser"
-      POSTGRES_PASSWORD: "ywgparcelpass"
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql
-    restart: always
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 1
+      MARIADB_DATABASE: "ywgparcel"
+      MARIADB_USER: "ywgparceluser"
+      MARIADB_PASSWORD: "ywgparcelpass"
+      ports:
+        "3306:3306"
+      volumes:
+        mariadb_data/var/lib/mariadbsql
+      restart: always
 
   web:
     build:
@@ -55,6 +69,8 @@ services:
       wait"
     ]
 
+
 volumes:
   postgres_data:
   ollama:
+

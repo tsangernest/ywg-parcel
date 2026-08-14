@@ -1,5 +1,5 @@
 from functools import lru_cache
-from pydantic import PostgresDsn, computed_field
+from pydantic import MariaDBDsn, PostgresDsn, computed_field
 from pydantic_settings import BaseSettings
 
 from tests.db_persistence import SqliteAsync
@@ -9,7 +9,7 @@ from tests.db_persistence import SqliteAsync
 class Settings(BaseSettings):
     @computed_field
     @property
-    def SQLALCHEMY_DATABASE_URI(self) -> PostgresDsn:
+    def SQLALCHEMY_DB_URI(self) -> PostgresDsn:
         """
         * I can't say I'm a fan of this pydantic setup.
         * 'host' parameter actually means the name of the docker compose.
@@ -29,7 +29,7 @@ class Settings(BaseSettings):
 
     @computed_field
     @property
-    def SQLITE_DATABASE_URI(self) -> SqliteAsync:
+    def SQLITE_DB_URI(self) -> SqliteAsync:
         """
         * Just wanted to integrate an async sqlite to pydantic network
         """
@@ -37,6 +37,14 @@ class Settings(BaseSettings):
             scheme="sqlite+aiosqlite",
             host="",
         )
+
+    # @computed_field
+    @property
+    def SQL_MARIADB_URI(self):
+        """
+        *  Wanted to integrate an async mariadb to pydantic network
+        """
+        return f"mariadb+aiomysql://ywgparceluser:ywgparcelpass@mysql:3306"
 
 
 settings = Settings()
