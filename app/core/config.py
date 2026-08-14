@@ -1,8 +1,8 @@
 from functools import lru_cache
-from pydantic import MariaDBDsn, PostgresDsn, computed_field
+from pydantic import PostgresDsn, computed_field
 from pydantic_settings import BaseSettings
 
-from tests.db_persistence import SqliteAsync
+from tests.db_persistence import MariaDBAsync, SqliteAsync
 
 
 @lru_cache
@@ -38,13 +38,30 @@ class Settings(BaseSettings):
             host="",
         )
 
-    # @computed_field
+    @computed_field
     @property
-    def SQL_MARIADB_URI(self):
+    def SQL_MARIADB_URI(self) -> MariaDBAsync:
         """
-        *  Wanted to integrate an async mariadb to pydantic network
+        * Want to integrate an async mariadb with pydantic network
         """
-        return f"mariadb+aiomysql://ywgparceluser:ywgparcelpass@mysql:3306"
+        return MariaDBAsync.build(
+            scheme="mariadb+aiomysql",
+            username="ywgparceluser",
+            password="ywgparcelpass",
+            host="mysql",
+            port=3306,
+            path="ywgparcel",
+        )
+
+    ################################################
+    ##### WORKING ##### Leaving here for references
+    # @property
+    # def SQL_MARIADB_URI(self):
+    #     """
+    #     *  Wanted to integrate an async mariadb to pydantic network
+    #     """
+    #     return f"mariadb+aiomysql://ywgparceluser:ywgparcelpass@mysql:3306"
+    ################################################
 
 
 settings = Settings()

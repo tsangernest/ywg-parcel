@@ -1,4 +1,4 @@
-from pydantic.networks import AnyUrl, UrlConstraints
+from pydantic.networks import AnyUrl, MariaDBDsn, UrlConstraints
 
 
 class SqliteAsync(AnyUrl):
@@ -7,4 +7,10 @@ class SqliteAsync(AnyUrl):
         default_path="/:memory:",
     )
 
+
+class MariaDBAsync(MariaDBDsn):
+        (MariaDBDsn
+         ._constraints
+         .allowed_schemes
+         .append("mariadb+aiomysql"))
 
