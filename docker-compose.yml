@@ -64,7 +64,7 @@ services:
     entrypoint: [
       "/bin/bash", "-c", "\
       ollama serve & \
-      sleep 7 && \
+      sleep 11 && \
       ollama run gemma3:12b && \
       wait"
     ]
