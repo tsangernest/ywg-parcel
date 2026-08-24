@@ -1,19 +1,6 @@
 
 
 services:
-#  db:
-#    image: postgres:18.4
-#    container_name: postgresql
-#    environment:
-#      POSTGRES_DB: "ywgparcel"
-#      POSTGRES_USER: "ywgparceluser"
-#      POSTGRES_PASSWORD: "ywgparcelpass"
-#    ports:
-#      - "5432:5432"
-#    volumes:
-#      - postgres_data:/var/lib/postgresql
-#    restart: always
-
   db:
     image: mariadb:12.3.2
     container_name: mysql
@@ -27,6 +14,21 @@ services:
       volumes:
         mariadb_data/var/lib/mariadbsql
       restart: always
+
+
+#  db:
+#    image: postgres:18.4
+#    container_name: postgresql
+#    environment:
+#      POSTGRES_DB: "ywgparcel"
+#      POSTGRES_USER: "ywgparceluser"
+#      POSTGRES_PASSWORD: "ywgparcelpass"
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - postgres_data:/var/lib/postgresql
+#    restart: always
+
 
   web:
     build:
@@ -53,11 +55,15 @@ services:
       - ollama:/root/.ollama
     devices:
       - /dev/dri:/dev/dri
+#      - /dev/kfd:/dev/kfd
     environment:
+#      - OLLAMA_CONTEXT_LENGTH=16384
       - OLLAMA_IGPU_ENABLE=1
+#      - OLLAMA_NUM_PARALLEL=1
+#      - OLLAMA_OVERRIDE_VRAM=1
       - OLLAMA_REMOTES=!
       - OLLAMA_VULKAN=1
-    mem_limit: 48g
+    mem_limit: 54g
     depends_on:
       - web
     restart: always
@@ -71,6 +77,7 @@ services:
 
 
 volumes:
+  mariadb_data:
   postgres_data:
   ollama:
 
